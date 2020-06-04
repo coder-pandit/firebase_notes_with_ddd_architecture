@@ -31,6 +31,7 @@ class SignInForm extends StatelessWidget {
         return Form(
           autovalidate: state.showErrorMessages,
           child: ListView(
+            padding: const EdgeInsets.all(8),
             children: [
               // notes icon on top
               const Text(
@@ -95,10 +96,14 @@ class SignInForm extends StatelessWidget {
                   Expanded(
                     child: FlatButton(
                       // sign in user using bloc
-                      onPressed: () {
-                        context.bloc<SignInFormBloc>().add(
-                            const SignInFormEvent.signInWithEmailPressed());
-                      },
+                      onPressed: state.isSubmitting == true
+                          // if form is submitting disable button
+                          ? null
+                          : () {
+                              context.bloc<SignInFormBloc>().add(
+                                  const SignInFormEvent
+                                      .signInWithEmailPressed());
+                            },
                       child: const Text('SIGN IN'),
                     ),
                   ),
@@ -106,10 +111,13 @@ class SignInForm extends StatelessWidget {
                   Expanded(
                     child: FlatButton(
                       // register user using bloc
-                      onPressed: () {
-                        context.bloc<SignInFormBloc>().add(
-                            const SignInFormEvent.registerWithEmailPressed());
-                      },
+                      onPressed: state.isSubmitting == true
+                          ? null
+                          : () {
+                              context.bloc<SignInFormBloc>().add(
+                                  const SignInFormEvent
+                                      .registerWithEmailPressed());
+                            },
                       child: const Text('REGISTER'),
                     ),
                   ),
@@ -118,11 +126,12 @@ class SignInForm extends StatelessWidget {
               // google login button
               RaisedButton(
                 // authenticate user by google using bloc
-                onPressed: () {
-                  context
-                      .bloc<SignInFormBloc>()
-                      .add(const SignInFormEvent.signInWithGooglePressed());
-                },
+                onPressed: state.isSubmitting == true
+                    ? null
+                    : () {
+                        context.bloc<SignInFormBloc>().add(
+                            const SignInFormEvent.signInWithGooglePressed());
+                      },
                 color: Colors.lightBlue,
                 child: const Text(
                   'SIGN IN WITH GOOGLE',
@@ -132,6 +141,11 @@ class SignInForm extends StatelessWidget {
                   ),
                 ),
               ),
+              // while submitting show linear progressbar
+              if (state.isSubmitting) ...[
+                const SizedBox(height: 8),
+                const LinearProgressIndicator(),
+              ]
             ],
           ),
         );

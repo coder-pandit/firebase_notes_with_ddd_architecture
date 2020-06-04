@@ -5,7 +5,6 @@ import 'package:my_notes/presentation/routes/router.gr.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../injection.dart';
-import '../sing_in/sign_in_page.dart';
 
 class AppWidget extends StatelessWidget {
   // This widget is the root of your application.
