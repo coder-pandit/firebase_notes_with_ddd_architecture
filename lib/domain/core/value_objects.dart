@@ -14,6 +14,12 @@ abstract class ValueObjects<T> {
   // id = identity - same as writting (right) => right
   T getOrCrash() => value.fold((f) => throw UnexpectedValueError(f), id);
 
+  /// return [ValueFailure] of [value] in case of failure or [unit] if no failure
+  Either<ValueFailure<dynamic>, Unit> get failureOrUnit => value.fold(
+        (l) => left(l),
+        (r) => right(unit),
+      );
+
   bool isValid() => value.isRight();
 
   @override
