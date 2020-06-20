@@ -12,3 +12,5 @@ class UnexpectedValueError extends Error {
     return Error.safeToString('$explaination Failure was: $valueFailure');
   }
 }
+
+class NotAuthenticatedError extends Error {}
