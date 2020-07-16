@@ -2,12 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_notes/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
 
-import '../../../../application/auth/auth_bloc.dart';
-import '../../../../application/notes/note_actor/note_actor_bloc.dart';
-import '../../../../application/notes/note_watcher/note_watcher_bloc.dart';
-import '../../../../injection.dart';
-import '../../../routes/router.gr.dart';
+import '../../../application/auth/auth_bloc.dart';
+import '../../../application/notes/note_actor/note_actor_bloc.dart';
+import '../../../application/notes/note_watcher/note_watcher_bloc.dart';
+import '../../../injection.dart';
+import '../../routes/router.gr.dart';
 
 class NotesOverviewPage extends StatelessWidget {
   const NotesOverviewPage({Key key}) : super(key: key);
@@ -71,7 +72,7 @@ class NotesOverviewPage extends StatelessWidget {
               )
             ],
           ),
-          body: Container(),
+          body: const NotesOverviewBody(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               // todo: navigate to NoteFormPage

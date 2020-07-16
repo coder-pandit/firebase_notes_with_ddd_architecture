@@ -49,7 +49,7 @@ Either<ValueFailure<KtList<T>>, KtList<T>> validateMaxListLength<T>(
   int maxLength,
 ) {
   if (input.size <= maxLength) {
-    right(input);
+    return right(input);
   }
   return left(ValueFailure.lsitTooLong(failedValue: input, max: maxLength));
 }
