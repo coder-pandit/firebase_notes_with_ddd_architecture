@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/notes/note_form/note_form_bloc.dart';
 import 'body_field_widget.dart';
+import 'color_field_widget.dart';
 
 class NoteFormPageScaffold extends StatelessWidget {
   const NoteFormPageScaffold({
@@ -38,6 +39,7 @@ class NoteFormPageScaffold extends StatelessWidget {
               child: Column(
                 children: const [
                   BodyField(),
+                  ColorField(),
                 ],
               ),
             ),
