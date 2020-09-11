@@ -36,11 +36,11 @@ dependencies:
   rxdart: ^0.24.1
   flutter_hooks: ^0.13.0
   # firebase
-  firebase_core: ^0.4.5
-  firebase_analytics: ^5.0.16
-  firebase_auth: ^0.16.1
-  google_sign_in: ^4.5.1
-  cloud_firestore: ^0.13.7
+  firebase_core: ^0.5.0
+  firebase_analytics: ^6.0.0
+  firebase_auth: ^0.18.0+1
+  google_sign_in: ^4.5.3
+  cloud_firestore: ^0.14.0+2
 
 dev_dependencies:
   build_runner:

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
@@ -13,7 +12,7 @@ import '../notes/note_dtos.dart';
 
 @LazySingleton(as: INoteRepository)
 class NoteRepository implements INoteRepository {
-  final Firestore _firestore;
+  final FirebaseFirestore _firestore;
 
   NoteRepository(this._firestore);
 
@@ -25,13 +24,11 @@ class NoteRepository implements INoteRepository {
       final noteDto = NoteDto.fromDomain(note);
 
       // set data to route /users/{uderId}/notes/{noteId}
-      await userDoc.noteCollection
-          .document(noteDto.id)
-          .setData(noteDto.toJson());
+      await userDoc.noteCollection.doc(noteDto.id).set(noteDto.toJson());
 
       // return right part as success
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       // return left part as errors
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermission());
@@ -49,11 +46,11 @@ class NoteRepository implements INoteRepository {
       final noteId = note.id.getOrCrash();
 
       // delete data at route /users/{userId}/notes/{noteId}
-      await userDoc.noteCollection.document(noteId).delete();
+      await userDoc.noteCollection.doc(noteId).delete();
 
       // return right part as success
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       // return left part as errors
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermission());
@@ -73,13 +70,11 @@ class NoteRepository implements INoteRepository {
       final noteDto = NoteDto.fromDomain(note);
 
       // update data at route /users/{userId}/notes/{noteId}
-      await userDoc.noteCollection
-          .document(noteDto.id)
-          .updateData(noteDto.toJson());
+      await userDoc.noteCollection.doc(noteDto.id).update(noteDto.toJson());
 
       // return right part as success
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       // return left part as errors
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermission());
@@ -104,7 +99,7 @@ class NoteRepository implements INoteRepository {
         // map through each snapshot which is always a success case
         .map((snapshot) => right<NoteFailure, KtList<Note>>(
               // get documents for each snapshot
-              snapshot.documents
+              snapshot.docs
                   // map through each document & return NoteDto
                   .map((doc) => NoteDto.fromFirestore(doc).toDonaim())
                   // convert this iterable to KtList
@@ -112,7 +107,7 @@ class NoteRepository implements INoteRepository {
             ))
         // catch error & return the failure
         .onErrorReturnWith((e) {
-      if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
+      if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermission());
       } else {
         return left(const NoteFailure.unexpected());
@@ -133,7 +128,7 @@ class NoteRepository implements INoteRepository {
         // map through each snapshot which is always a success case
         .map((snapshot) =>
             // get documents for each snapshot
-            snapshot.documents
+            snapshot.docs
                 // map through each document & return NoteDto
                 .map((doc) => NoteDto.fromFirestore(doc).toDonaim()))
         // map through each note entity from previous map
@@ -152,7 +147,7 @@ class NoteRepository implements INoteRepository {
         )
         // catch error & return the failure
         .onErrorReturnWith((e) {
-      if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
+      if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermission());
       } else {
         return left(const NoteFailure.unexpected());
