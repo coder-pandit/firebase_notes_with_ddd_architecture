@@ -1,10 +1,16 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:kt_dart/kt.dart';
 
 import '../../../../domain/core/value_objects.dart';
 import '../../../../domain/notes/todo_item.dart';
 import '../../../../domain/notes/value_objects.dart';
 
 part 'todo_item_presentation_classes.freezed.dart';
+
+class FormTodos extends ValueNotifier<KtList<TodoItemPrimitive>> {
+  FormTodos() : super(emptyList<TodoItemPrimitive>());
+}
 
 @freezed
 abstract class TodoItemPrimitive implements _$TodoItemPrimitive {
@@ -16,7 +22,7 @@ abstract class TodoItemPrimitive implements _$TodoItemPrimitive {
     @required bool done,
   }) = _TodoItemPrimitive;
 
-  factory TodoItemPrimitive.entry() => TodoItemPrimitive(
+  factory TodoItemPrimitive.empty() => TodoItemPrimitive(
         id: UniqueId(),
         name: '',
         done: false,
