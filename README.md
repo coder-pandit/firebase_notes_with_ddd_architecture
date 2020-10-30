@@ -1,5 +1,4 @@
-# my_notes
-
+# My Notes
 A new Flutter project.
 
 ## Getting Started
