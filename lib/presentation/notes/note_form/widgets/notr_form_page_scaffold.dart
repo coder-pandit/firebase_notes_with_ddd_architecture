@@ -7,6 +7,7 @@ import '../misc/todo_item_presentation_classes.dart';
 import 'add_todo_tile_widget.dart';
 import 'body_field_widget.dart';
 import 'color_field_widget.dart';
+import 'todo_list_widget.dart';
 
 class NoteFormPageScaffold extends StatelessWidget {
   const NoteFormPageScaffold({
@@ -45,6 +46,7 @@ class NoteFormPageScaffold extends StatelessWidget {
                   children: const [
                     BodyField(),
                     ColorField(),
+                    TodoList(),
                     AddTodoTile(),
                   ],
                 ),

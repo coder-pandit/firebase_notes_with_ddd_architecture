@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../injection.dart';
-import '../routes/router.gr.dart';
+import '../routes/router.gr.dart' as app_router;
 
 class AppWidget extends StatelessWidget {
   // This widget is the root of your application.
@@ -32,7 +32,7 @@ class AppWidget extends StatelessWidget {
             ),
           ),
         ),
-        builder: ExtendedNavigator(router: Router()),
+        builder: ExtendedNavigator.builder(router: app_router.Router()),
       ),
     );
   }
