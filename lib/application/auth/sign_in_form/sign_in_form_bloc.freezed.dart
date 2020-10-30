@@ -9,6 +9,7 @@ part of 'sign_in_form_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$SignInFormEventTearOff {
   const _$SignInFormEventTearOff();
 
@@ -42,9 +43,11 @@ class _$SignInFormEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SignInFormEvent = _$SignInFormEventTearOff();
 
+/// @nodoc
 mixin _$SignInFormEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -82,12 +85,14 @@ mixin _$SignInFormEvent {
   });
 }
 
+/// @nodoc
 abstract class $SignInFormEventCopyWith<$Res> {
   factory $SignInFormEventCopyWith(
           SignInFormEvent value, $Res Function(SignInFormEvent) then) =
       _$SignInFormEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$SignInFormEventCopyWithImpl<$Res>
     implements $SignInFormEventCopyWith<$Res> {
   _$SignInFormEventCopyWithImpl(this._value, this._then);
@@ -97,6 +102,7 @@ class _$SignInFormEventCopyWithImpl<$Res>
   final $Res Function(SignInFormEvent) _then;
 }
 
+/// @nodoc
 abstract class $EmailChangedCopyWith<$Res> {
   factory $EmailChangedCopyWith(
           EmailChanged value, $Res Function(EmailChanged) then) =
@@ -104,6 +110,7 @@ abstract class $EmailChangedCopyWith<$Res> {
   $Res call({String emailStr});
 }
 
+/// @nodoc
 class _$EmailChangedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
     implements $EmailChangedCopyWith<$Res> {
@@ -124,6 +131,7 @@ class _$EmailChangedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$EmailChanged with DiagnosticableTreeMixin implements EmailChanged {
   const _$EmailChanged(this.emailStr) : assert(emailStr != null);
 
@@ -236,6 +244,7 @@ abstract class EmailChanged implements SignInFormEvent {
   $EmailChangedCopyWith<EmailChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class $PasswordChangedCopyWith<$Res> {
   factory $PasswordChangedCopyWith(
           PasswordChanged value, $Res Function(PasswordChanged) then) =
@@ -243,6 +252,7 @@ abstract class $PasswordChangedCopyWith<$Res> {
   $Res call({String passwordStr});
 }
 
+/// @nodoc
 class _$PasswordChangedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
     implements $PasswordChangedCopyWith<$Res> {
@@ -263,6 +273,7 @@ class _$PasswordChangedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$PasswordChanged
     with DiagnosticableTreeMixin
     implements PasswordChanged {
@@ -377,12 +388,14 @@ abstract class PasswordChanged implements SignInFormEvent {
   $PasswordChangedCopyWith<PasswordChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class $RegisterWithEmailPressedCopyWith<$Res> {
   factory $RegisterWithEmailPressedCopyWith(RegisterWithEmailPressed value,
           $Res Function(RegisterWithEmailPressed) then) =
       _$RegisterWithEmailPressedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$RegisterWithEmailPressedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
     implements $RegisterWithEmailPressedCopyWith<$Res> {
@@ -395,6 +408,7 @@ class _$RegisterWithEmailPressedCopyWithImpl<$Res>
       super._value as RegisterWithEmailPressed;
 }
 
+/// @nodoc
 class _$RegisterWithEmailPressed
     with DiagnosticableTreeMixin
     implements RegisterWithEmailPressed {
@@ -494,12 +508,14 @@ abstract class RegisterWithEmailPressed implements SignInFormEvent {
   const factory RegisterWithEmailPressed() = _$RegisterWithEmailPressed;
 }
 
+/// @nodoc
 abstract class $SignInWithEmailPressedCopyWith<$Res> {
   factory $SignInWithEmailPressedCopyWith(SignInWithEmailPressed value,
           $Res Function(SignInWithEmailPressed) then) =
       _$SignInWithEmailPressedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$SignInWithEmailPressedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
     implements $SignInWithEmailPressedCopyWith<$Res> {
@@ -511,6 +527,7 @@ class _$SignInWithEmailPressedCopyWithImpl<$Res>
   SignInWithEmailPressed get _value => super._value as SignInWithEmailPressed;
 }
 
+/// @nodoc
 class _$SignInWithEmailPressed
     with DiagnosticableTreeMixin
     implements SignInWithEmailPressed {
@@ -610,12 +627,14 @@ abstract class SignInWithEmailPressed implements SignInFormEvent {
   const factory SignInWithEmailPressed() = _$SignInWithEmailPressed;
 }
 
+/// @nodoc
 abstract class $SignInWithGooglePressedCopyWith<$Res> {
   factory $SignInWithGooglePressedCopyWith(SignInWithGooglePressed value,
           $Res Function(SignInWithGooglePressed) then) =
       _$SignInWithGooglePressedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$SignInWithGooglePressedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
     implements $SignInWithGooglePressedCopyWith<$Res> {
@@ -627,6 +646,7 @@ class _$SignInWithGooglePressedCopyWithImpl<$Res>
   SignInWithGooglePressed get _value => super._value as SignInWithGooglePressed;
 }
 
+/// @nodoc
 class _$SignInWithGooglePressed
     with DiagnosticableTreeMixin
     implements SignInWithGooglePressed {
@@ -726,6 +746,7 @@ abstract class SignInWithGooglePressed implements SignInFormEvent {
   const factory SignInWithGooglePressed() = _$SignInWithGooglePressed;
 }
 
+/// @nodoc
 class _$SignInFormStateTearOff {
   const _$SignInFormStateTearOff();
 
@@ -746,9 +767,11 @@ class _$SignInFormStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SignInFormState = _$SignInFormStateTearOff();
 
+/// @nodoc
 mixin _$SignInFormState {
   EmailAddress get emailAddress;
   Password get password;
@@ -759,6 +782,7 @@ mixin _$SignInFormState {
   $SignInFormStateCopyWith<SignInFormState> get copyWith;
 }
 
+/// @nodoc
 abstract class $SignInFormStateCopyWith<$Res> {
   factory $SignInFormStateCopyWith(
           SignInFormState value, $Res Function(SignInFormState) then) =
@@ -771,6 +795,7 @@ abstract class $SignInFormStateCopyWith<$Res> {
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
+/// @nodoc
 class _$SignInFormStateCopyWithImpl<$Res>
     implements $SignInFormStateCopyWith<$Res> {
   _$SignInFormStateCopyWithImpl(this._value, this._then);
@@ -804,6 +829,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$SignInFormStateCopyWith<$Res>
     implements $SignInFormStateCopyWith<$Res> {
   factory _$SignInFormStateCopyWith(
@@ -818,6 +844,7 @@ abstract class _$SignInFormStateCopyWith<$Res>
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
+/// @nodoc
 class __$SignInFormStateCopyWithImpl<$Res>
     extends _$SignInFormStateCopyWithImpl<$Res>
     implements _$SignInFormStateCopyWith<$Res> {
@@ -853,6 +880,7 @@ class __$SignInFormStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_SignInFormState
     with DiagnosticableTreeMixin
     implements _SignInFormState {
